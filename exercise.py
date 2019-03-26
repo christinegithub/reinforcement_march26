@@ -8,39 +8,44 @@
 # Define a method in the Trip class that iterates through the list of locations and prints something
 # similar to the following:
 
+
 class Location:
 
     def __init__(self, name):
         self.name = name
 
-    # def printStations():
-    #     print("printing stations")
-
-# class Trip:
-#
-#     def __init__(self, destinations = []):
-#         self.destinations = destinations
-#
-#     def addLocations(self):
-#         self.destinations.push(Location(name))
-#         return self.destinations
+    def __str__(self):
+        return "{}".format(self.name)
 
 
 class Trip:
 
-    def __init__(self, destinations = []):
-        self.destinations = destinations
+    def __init__(self):
+        self.destinations = []
 
-    def printTrip(destinations):
-        i = 1
-        # destinations = []
-        destinations = ["Toronto", "Ottawa", "Montreal", "Quebec City", "Halifax", "St. John's"]
+    def addLocation(self, location):
+        self.destinations.append(location)
+
+    def printTrip(self):
+        i = 0
         print("Began trip.")
-        for i in range(len(destinations) - 1):
-            print("Travelled from {} to {}.".format(destinations[i], destinations[i + 1]))
-            i =+ 1
+        for i in range(len(self.destinations) - 1):
+            print("Travelled from {} to {}.".format(self.destinations[i], self.destinations[i + 1]))
+        i =+ 1
         print("Ended trip.")
 
 
-destinations = Trip(["Toronto", "Ottawa", "Montreal", "Quebec City", "Halifax", "St. John's"])
-Trip.printTrip(destinations)
+toronto = Location("Toronto")
+ottawa = Location("Ottawa")
+montreal = Location("Montreal")
+quebec = Location("Quebec City")
+halifax = Location("Halifax")
+stjohns = Location("St. John's")
+trip1 = Trip()
+trip1.addLocation(toronto)
+trip1.addLocation(ottawa)
+trip1.addLocation(montreal)
+trip1.addLocation(quebec)
+trip1.addLocation(halifax)
+trip1.addLocation(stjohns)
+trip1.printTrip()
